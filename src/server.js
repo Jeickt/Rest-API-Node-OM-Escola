@@ -1,6 +1,5 @@
 import app from './app';
 
-const port = process.env.APP_PORT;
-const host = process.env.APP_HOST;
+const port = process.env.PORT || process.env.APP_PORT;
 
-app.listen(port, host);
+app.listen(port);
