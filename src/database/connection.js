@@ -8,7 +8,7 @@ const models = [Photo, Student, User];
 
 let connection;
 if (process.env.CLEARDB_DATABASE_URL) {
-  connection = process.env.CLEARDB_DATABASE_URL;
+  connection = new Sequelize(process.env.CLEARDB_DATABASE_URL);
 } else {
   connection = new Sequelize(databaseConfig);
 }
