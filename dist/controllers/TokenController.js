@@ -22,5 +22,5 @@ exports.create = async (req, res) => {
     process.env.TOKEN_SECRET,
     { expiresIn: process.env.TOKEN_EXPIRATION },
   );
-  return res.json({ token });
+  return res.json({ token, user: { name: user.name, id, email } });
 };

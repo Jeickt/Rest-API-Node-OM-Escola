@@ -6,7 +6,12 @@ var _Photo = require('../models/Photo'); var _Photo2 = _interopRequireDefault(_P
 
 const models = [_Photo2.default, _Student2.default, _User2.default];
 
-const connection = new (0, _sequelize2.default)(_database2.default);
+let connection;
+if (process.env.CLEARDB_DATABASE_URL) {
+  connection = new (0, _sequelize2.default)(process.env.CLEARDB_DATABASE_URL);
+} else {
+  connection = new (0, _sequelize2.default)(_database2.default);
+}
 
 models.forEach((model) => model.init(connection));
 models.forEach((model) => model.associate && model.associate(connection.models));

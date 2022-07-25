@@ -14,6 +14,7 @@ const securedUrlList = [process.env.APP_URL_FRONTEND, process.env.APP_URL_FRONTE
 
 const corsOptions = {
   origin: (origin, cb) => {
+    console.log(origin);
     if (!origin || securedUrlList.indexOf(origin) !== -1) cb(null, true);
     else cb(new Error('Não permitido por CORS'));
   },
