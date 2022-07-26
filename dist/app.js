@@ -14,7 +14,6 @@ const securedUrlList = [process.env.APP_URL_FRONTEND, process.env.APP_URL_FRONTE
 
 const corsOptions = {
   origin: (origin, cb) => {
-    console.log(!origin || securedUrlList.indexOf(origin) !== -1);
     if (!origin || securedUrlList.indexOf(origin) !== -1) cb(null, true);
     else cb(new Error('Não permitido por CORS'));
   },
@@ -28,7 +27,7 @@ app.use(_cors2.default.call(void 0, corsOptions));
 app.use(_helmet2.default.call(void 0, ));
 app.use(_express2.default.urlencoded({ extended: true }));
 app.use(_express2.default.json());
-app.use(_express2.default.static(_path.resolve.call(void 0, __dirname, 'uploads')));
+app.use(_express2.default.static(_path.resolve.call(void 0, __dirname, '..', 'uploads')));
 
 // app.use(middleware);
 app.use(_homeRoutes2.default);
