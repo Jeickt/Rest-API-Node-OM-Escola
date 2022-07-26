@@ -17,6 +17,7 @@ exports.create = (req, res) => upload(req, res, async (err) => {
 
     return res.status(200).json(photo);
   } catch (e) {
-    return res.status(400).json({ errors: ['O estudante não existe'] });
+    return res.status(400).json(e);
+    // { errors: ['O estudante não existe'] }
   }
 });
