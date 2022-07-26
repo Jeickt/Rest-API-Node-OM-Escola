@@ -27,7 +27,7 @@ app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(resolve(__dirname, 'uploads')));
+app.use(express.static(resolve(__dirname, '../uploads')));
 
 // app.use(middleware);
 app.use(homeRoutes);

@@ -46,15 +46,15 @@ exports.show = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
-  // try {
-  const newStudent = await Student.create(req.body);
-  return res.status(200).json(newStudent);
-  // } catch (e) {
-  //   if (e.errors) {
-  //     return res.status(400).json({ errors: e.errors.map((err) => err.message) });
-  //   }
-  //   return res.status(400).json({ error: 'Estudante não criado' });
-  // }
+  try {
+    const newStudent = await Student.create(req.body);
+    return res.status(200).json(newStudent);
+  } catch (e) {
+    if (e.errors) {
+      return res.status(400).json({ errors: e.errors.map((err) => err.message) });
+    }
+    return res.status(400).json({ error: 'Estudante não criado' });
+  }
 };
 
 exports.update = async (req, res) => {
