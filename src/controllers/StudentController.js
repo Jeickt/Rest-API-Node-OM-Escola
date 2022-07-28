@@ -5,7 +5,7 @@ exports.index = async (req, res) => {
   try {
     const students = await Student.findAll({
       attributes:
-      ['name', 'lastName', 'email', 'age', 'weight', 'height'],
+      ['id', 'name', 'lastName', 'email', 'age', 'weight', 'height'],
       order: [['id', 'DESC'], [Photo, 'Id', 'DESC']],
       include: {
         model: Photo,
@@ -26,7 +26,7 @@ exports.show = async (req, res) => {
     const { id } = req.params;
     const student = await Student.findByPk(id, {
       attributes:
-      ['name', 'lastName', 'email', 'age', 'weight', 'height'],
+      ['id', 'name', 'lastName', 'email', 'age', 'weight', 'height'],
       order: [['id', 'DESC'], [Photo, 'Id', 'DESC']],
       include: {
         model: Photo,
